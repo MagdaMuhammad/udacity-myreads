@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import { Container, Row, Col, Button, CardBody, Card, CardTitle, CardImg, CardSubtitle, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
+
+
 class Section extends Component {
+
+    static propTypes = {
+        sectionName: PropTypes.string.isRequired,
+    }
+
 
     state ={
         dropdownOpen: false,
