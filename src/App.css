@@ -26,15 +26,14 @@ body {
     text-align: right;
     padding-right: 10%;
     color: red;
-    text-shadow: 2px 2px #ff0000;
+    text-shadow: 2px 2px white;
+    font-weight: 700 ;
 
 }
 
 
 .container {
     padding: 3%;
-    border: solid 1px black;
-    border-radius: 20px;
     margin: 0 2%;
 }
 
@@ -48,6 +47,19 @@ body {
     height: 40vh;
     object-fit: cover;
 }
+
+.sec-container h2 {
+    font-weight:  bold;
+    text-decoration: underline;
+    text-align: left;
+    margin-bottom: 3%;
+}
+
+
+.paper-bg {
+    background-image: url('./images/paper-bg.jpg');
+
+}
 /* edit view for small screens */
 @media screen and (max-width: 700px) {
     .header h1 { 
@@ -55,6 +67,9 @@ body {
         text-align: center;
         padding: 0;
         padding-top: 14%;
+        color: white;
+        text-shadow: 2px 2px red;
+
     }
 
 }

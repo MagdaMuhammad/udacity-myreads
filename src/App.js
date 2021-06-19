@@ -9,7 +9,7 @@ class App extends Component {
         return (
             <div className="App">
                 <header className="header">
-                    <h1 class="header-title"> My Reads </h1>
+                    <h1> My Reads </h1>
                 </header>
                 <div>
                     <Container>
