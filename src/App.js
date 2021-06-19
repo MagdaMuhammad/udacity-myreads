@@ -7,12 +7,18 @@ import Search from './Search.js';
 class App extends Component {
 
     state = {
-        showSearchPage: false;
+        showSearchPage: false
     }
 
     showSearchPage = () => {
         this.setState(()=>({
             showSearchPage: true
+        }))
+    }
+
+    backToHomePage = () => {
+        this.setState(()=>({
+            showSearchPage: false
         }))
     }
 
@@ -25,19 +31,23 @@ class App extends Component {
                 <div>
                     <Container>
                         <Row>
-                            <Col>
-                                { this.state.showSearchPage ?
+                            { this.state.showSearchPage ?
+                                <Col>
                                     <Search />
-                                :
+                                </Col>
+                            :
+                                <Col>
+
                                     <Section sectionName="Currently Reading"/>
                                     <Section sectionName="Want To Read"/>
                                     <Section sectionName="Read"/>
-                                }
-                            </Col>
+                                </Col>
+
+                           }
                         </Row>
                     </Container>
                 </div>
-                <button id="addBookBtn" title="Add New Book" onClick={this.showSearchPage}>Add New Book</button>
+                <button id="addBookBtn" title="Add New Book" onClick={this.state.showSearchPage? this.backToHomePage:this.showSearchPage}>{this.state.showSearchPage? 'Back To Homepage':'Add New Book'}</button>
             </div>
         );
     }

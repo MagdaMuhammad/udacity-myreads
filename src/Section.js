@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, Row, Col, Button, CardBody, Card, CardTitle, CardImg, CardSubtitle, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Container, Row, Col, CardBody, Card, CardTitle, CardImg, CardSubtitle, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 
 
@@ -41,10 +41,10 @@ class Section extends Component {
                                             <Dropdown group isOpen={this.state.dropdownOpen} size="sm" toggle={this.toggle}>
                                                 <DropdownToggle caret> Move To </DropdownToggle>
                                                 <DropdownMenu>
-                                                    <DropdownItem>Currently Reading</DropdownItem>
-                                                    <DropdownItem>Want To Read</DropdownItem>
-                                                    <DropdownItem>Read</DropdownItem>
-                                                    <DropdownItem>None</DropdownItem>
+                                                    <DropdownItem name="currentlyReading">Currently Reading</DropdownItem>
+                                                    <DropdownItem name="wantToRead">Want To Read</DropdownItem>
+                                                    <DropdownItem name="read" active="true">Read</DropdownItem>
+                                                    <DropdownItem name="">None</DropdownItem>
                                                 </DropdownMenu>
                                             </Dropdown>
                                         </CardBody>
