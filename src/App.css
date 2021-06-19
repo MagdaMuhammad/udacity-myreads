@@ -1,23 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Handlee&family=Patrick+Hand&display=swap');
 
 body {
-    /*background-color: #B88A31;*/
     background-color: #CFB66D;
+    background-image: url('images/background-image.jpg');
+
 }
 
 .App {
     text-align: center;
     font-family: 'Handlee', cursive;
-    color: white;
+    color: black;
     position: absolute;
     width: 100%;
     top:  0;
 }
 
 .header {
-    background-image: url('images/cover-image.jpg');
-    background-color: #25201f;
-    background-position:63% 60%;
     min-height: 180px;
 }
 
@@ -25,12 +23,31 @@ body {
     margin: 0;
     padding-top: 5%;
     font-size: 5em;
-    text-align: left;
-    padding-left: 10%;
+    text-align: right;
+    padding-right: 10%;
+    color: red;
+    text-shadow: 2px 2px #ff0000;
+
 }
 
 
+.container {
+    padding: 3%;
+    border: solid 1px black;
+    border-radius: 20px;
+    margin: 0 2%;
+}
 
+.sec-container {
+    margin: 1% 0;
+    padding: 0;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+}
 /* edit view for small screens */
 @media screen and (max-width: 700px) {
     .header h1 { 
