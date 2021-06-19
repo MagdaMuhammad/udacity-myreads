@@ -15,9 +15,9 @@ class App extends Component {
                     <Container>
                         <Row>
                             <Col>
-                                <Section />
-                                <Section />
-                                <Section />
+                                <Section sectionName="Currently Reading"/>
+                                <Section sectionName="Want To Read"/>
+                                <Section sectionName="Read"/>
                             </Col>
                         </Row>
                     </Container>
