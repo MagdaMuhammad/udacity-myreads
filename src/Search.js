@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Section from './Section.js';
 import { Input } from 'reactstrap';
 
+
 class Search extends Component {
 
 	state={
@@ -20,7 +21,7 @@ class Search extends Component {
             <div className="sec-container">
             	<Input type="text" name="searchQuery" placeholder="Search By Title Or Author.." bsSize="lg" onChange={event=>this.handleSearchQuery(event.target.value)} value={this.state.searchQuery}/>
 
-            	<Section sectionName="Search Results"/>
+            	<Section sectionName="Search Results" books={this.props.books} />
             </div>
 		)
 	}

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
+import * as BooksAPI from './BooksAPI.js';
 import { Container, Row, Col } from 'reactstrap';
 import Section from './Section.js';
 import Search from './Search.js';
@@ -7,7 +8,17 @@ import Search from './Search.js';
 class App extends Component {
 
     state = {
-        showSearchPage: false
+        showSearchPage: false,
+        Books: []
+    }
+
+    componentDidMount(){
+        BooksAPI.getAll()
+        .then((books)=>{
+            this.setState(()=>({
+                Books: books
+            }))
+        })
     }
 
     showSearchPage = () => {
@@ -23,6 +34,7 @@ class App extends Component {
     }
 
     render() {
+
         return (
             <div className="App">
                 <header className="header">
@@ -33,16 +45,15 @@ class App extends Component {
                         <Row>
                             { this.state.showSearchPage ?
                                 <Col>
-                                    <Search />
+                                    <Search books={this.state.Books}/>
                                 </Col>
                             :
                                 <Col>
 
-                                    <Section sectionName="Currently Reading"/>
-                                    <Section sectionName="Want To Read"/>
-                                    <Section sectionName="Read"/>
+                                    <Section sectionName="Currently Reading" filter="currentlyReading" books={this.state.Books} />
+                                    <Section sectionName="Want To Read" filter="wantToRead" books={this.state.Books} />
+                                    <Section sectionName="Read" filter="read" books={this.state.Books} />
                                 </Col>
-
                            }
                         </Row>
                     </Container>
