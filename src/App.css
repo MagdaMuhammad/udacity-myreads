@@ -81,6 +81,12 @@ body {
     margin-bottom: 2%;
 }
 
+select { 
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 8%;
+}
+
 /* edit view for small screens */
 @media screen and (max-width: 700px) {
     .header h1 { 
@@ -92,5 +98,10 @@ body {
         text-shadow: 2px 2px red;
 
     }
+
+    select { 
+        width: 15%;
+    }
+
 
 }

@@ -13,17 +13,6 @@ class Section extends Component {
         filter: PropTypes.string
     }
 
-
-    state ={
-        dropdownOpen: false,
-    }
-
-    toggle = () => {
-        this.setState((prevState)=>({
-            dropdownOpen: !prevState.dropdownOpen
-        }))
-    }
-
     render() {
         const books = this.props.filter ? this.props.books.filter((book)=>(book.shelf === this.props.filter)) : this.props.books;
         return(
@@ -46,12 +35,11 @@ class Section extends Component {
 
                                                 <FormGroup>
                                                     <CustomInput type="select" id="exampleCustomSelect" name="customSelect">
-                                                        <option value="">Select</option>
-                                                        <option>Value 1</option>
-                                                        <option>Value 2</option>
-                                                        <option>Value 3</option>
-                                                        <option>Value 4</option>
-                                                        <option>Value 5</option>
+                                                        <option value="" disabled>Move To</option>
+                                                        <option value="currentlyReading">Currently Reading { book.shelf === 'currentlyReading' ? '✔' : '' }</option>
+                                                        <option value="wantToRead"> Want To Read { book.shelf === 'wantToRead' ? '✔' : '' }</option>
+                                                        <option value="read">Read { book.shelf === 'read' ? '✔' : '' }</option>
+                                                        {book.shelf !== '' ? <option value="">none</option> : ''}
                                                     </CustomInput>
                                                 </FormGroup>
 
