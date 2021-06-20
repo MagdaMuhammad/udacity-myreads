@@ -77,9 +77,10 @@ class App extends Component {
                                             onHandleShelfChange={this.handleShelfChange}
                                         />
                                     </Col>
-                                    <button id="addBookBtn" title="Add New Book">
-                                        <Link to='/search'>Add New Book</Link>
-                                    </button>
+                                    <Link to='/search'>
+                                        <button id="addBookBtn" title="Add New Book">Add New Book</button>
+                                    </Link>
+
                                 </div>
                             )} />
                             <Route path='/search' render={()=>(
@@ -87,9 +88,9 @@ class App extends Component {
                                     <Col>
                                         <Search books={this.state.booksList} onHandleShelfChange={this.handleShelfChange} />
                                     </Col>
-                                    <button id="addBookBtn" title="Add New Book">
-                                        <Link to='/'>Back To Homepage</Link>
-                                    </button>
+                                    <Link to='/'>
+                                        <button id="addBookBtn" title="Add New Book">Back To Homepage</button>
+                                    </Link>
                                 </div>
                             )}/>
                         </Row>
