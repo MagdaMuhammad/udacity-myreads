@@ -19,14 +19,18 @@ class Search extends Component {
 		if( query.length > 0 )
 			BooksAPI.search(query)
 			.then(books=>{
-				const userBooks = this.props.books;
+				let newBookList = [];
 
-				let newBookList = books.map((book)=>{
-					let bookFound = userBooks.find(b => b.id === book.id)
-					book.shelf = (bookFound !== undefined ?  bookFound.shelf : 'none');
-					return book;
-				})
+				if(books.length > 0 )
+				{
+					const userBooks = this.props.books;
 
+					newBookList = books.map((book)=>{
+						let bookFound = userBooks.find(b => b.id === book.id)
+						book.shelf = (bookFound !== undefined ?  bookFound.shelf : 'none');
+						return book;
+					})
+				}
 				this.setState(()=>({
 					searchResults: newBookList
 				}))
