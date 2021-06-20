@@ -10,6 +10,7 @@ import Search from './Search.js';
 class App extends Component {
 
     state = {
+        booksList: [],
         books: {
             currentlyReading: [],
             wantToRead: [],
@@ -21,6 +22,7 @@ class App extends Component {
         BooksAPI.getAll()
         .then((books)=>{
             this.setState(()=>({
+                booksList: books,
                 books: {
                     currentlyReading: books.filter((book)=>(book.shelf === 'currentlyReading')),
                     wantToRead: books.filter((book)=>(book.shelf === 'wantToRead')),
@@ -33,11 +35,13 @@ class App extends Component {
 
 
     handleShelfChange = (book, shelf) => {
+
         BooksAPI.update(book, shelf)
         .then((date)=>{
             this.setState((currState)=>({
                 books: {
                     ...currState.books,
+                    [book.shelf]: currState.books.[book.shelf].filter( b=> b.id !== book.id ),
                     [shelf]: currState.books.[shelf].concat([book])
                 }
             }))
@@ -81,7 +85,7 @@ class App extends Component {
                             <Route path='/search' render={()=>(
                                 <div>
                                     <Col>
-                                        <Search onHandleShelfChange={this.handleShelfChange} />
+                                        <Search books={this.state.booksList} onHandleShelfChange={this.handleShelfChange} />
                                     </Col>
                                     <button id="addBookBtn" title="Add New Book">
                                         <Link to='/'>Back To Homepage</Link>

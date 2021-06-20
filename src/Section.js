@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as BooksAPI from './BooksAPI.js';
 import { Container, Row, Col, CardBody, Card, CardTitle, CardImg, CardSubtitle, CustomInput, FormGroup } from 'reactstrap';
 
 
@@ -10,12 +9,15 @@ class Section extends Component {
     static propTypes = {
         sectionName: PropTypes.string.isRequired,
         books:  PropTypes.array.isRequired,
-        filter: PropTypes.string
+        onHandleShelfChange: PropTypes.func.isRequired
     }
 
     handleChange = (book, shelf) => {
         this.props.onHandleShelfChange(book, shelf);
-        document.getElementById(book.id).style.display = "none"; ;
+        book.shelf = shelf;
+        if(! this.props.flag)
+            document.getElementById(book.id).style.display = "none";
+
     }
 
     render() {
