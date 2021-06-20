@@ -9,7 +9,7 @@ class App extends Component {
 
     state = {
         showSearchPage: false,
-        Books: []
+        Books: [],
     }
 
     componentDidMount(){
@@ -19,6 +19,10 @@ class App extends Component {
                 Books: books
             }))
         })
+    }
+
+    handleShelfChange = (book, shelf) => {
+        BooksAPI.update(book, shelf);
     }
 
     showSearchPage = () => {
@@ -50,9 +54,9 @@ class App extends Component {
                             :
                                 <Col>
 
-                                    <Section sectionName="Currently Reading" filter="currentlyReading" books={this.state.Books} />
-                                    <Section sectionName="Want To Read" filter="wantToRead" books={this.state.Books} />
-                                    <Section sectionName="Read" filter="read" books={this.state.Books} />
+                                    <Section sectionName="Currently Reading" filter="currentlyReading" books={this.state.Books} onHandleChange={this.handleShelfChange} />
+                                    <Section sectionName="Want To Read" filter="wantToRead" books={this.state.Books} onHandleChange={this.handleShelfChange} />
+                                    <Section sectionName="Read" filter="read" books={this.state.Books} onHandleChange={this.handleShelfChange} />
                                 </Col>
                            }
                         </Row>

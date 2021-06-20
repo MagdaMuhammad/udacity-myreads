@@ -13,6 +13,11 @@ class Section extends Component {
         filter: PropTypes.string
     }
 
+
+    handleChange = (event, book) => {
+        this.props.onHandleChange(book, event.target.value);
+    }
+
     render() {
         const books = this.props.filter ? this.props.books.filter((book)=>(book.shelf === this.props.filter)) : this.props.books;
         return(
@@ -34,12 +39,12 @@ class Section extends Component {
                                                 ))}
 
                                                 <FormGroup>
-                                                    <CustomInput type="select" id="exampleCustomSelect" name="customSelect">
-                                                        <option value="" disabled>Move To</option>
+                                                    <CustomInput type="select" id="exampleCustomSelect" name="customSelect" onChange={(e)=>this.handleChange(e, book)}>
+                                                        <option>Move To</option>
                                                         <option value="currentlyReading">Currently Reading { book.shelf === 'currentlyReading' ? '✔' : '' }</option>
                                                         <option value="wantToRead"> Want To Read { book.shelf === 'wantToRead' ? '✔' : '' }</option>
                                                         <option value="read">Read { book.shelf === 'read' ? '✔' : '' }</option>
-                                                        {book.shelf !== '' ? <option value="">none</option> : ''}
+                                                        <option value="none">None { book.shelf === 'none' ? '✔' : '' }</option>
                                                     </CustomInput>
                                                 </FormGroup>
 

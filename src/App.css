@@ -83,8 +83,7 @@ body {
 
 select { 
     border: 1px solid #ccc;
-    border-radius: 50%;
-    width: 8%;
+    width: 40%;
 }
 
 /* edit view for small screens */
@@ -99,9 +98,6 @@ select {
 
     }
 
-    select { 
-        width: 15%;
-    }
 
 
 }
