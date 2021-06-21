@@ -21,8 +21,8 @@ A bookshelf app that allows you to select and categorize books you have read, ar
 To download the project follow the instructions bellow:
 
 ```
-git clone https://github.com/MagdaMuhammad/udacity-my-reads
-cd udacity-my-reads
+git clone https://github.com/MagdaMuhammad/udacity-myreads
+cd udacity-myreads
 ```
 
 - install all project dependencies with `npm install`
